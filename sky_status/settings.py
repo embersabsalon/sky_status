@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sky_status_app'
 ]
 
 MIDDLEWARE = [
@@ -118,3 +119,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# API Keys
+OPEN_WEATHER_API_KEY = '36b13a89b95711e8f9ad2050f42413fa'
