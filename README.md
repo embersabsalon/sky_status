@@ -1,3 +1,3 @@
 # sky_status
 
-~Django weather app~
+-Django weather app-
