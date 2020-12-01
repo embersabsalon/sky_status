@@ -8,17 +8,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
     <script type="text/javascript">
-        let input = document.getElementById('city-search')
         function searchCity(){
+            let input = document.getElementById('city-search-text');
             let cityName = input.value;
             window.location.href = '?city=' + cityName;
         }
-        input.addEventListener('keyup', function(event) {
-            if (event.keyCode === 13) {
-                event.preventDefault();
-                document.getElementById('city-search').click();
-            }
-        });
     </script>
 </head>
 
@@ -40,7 +34,7 @@
                 <div class="column is-offset-4 is-4">
                     <div class="field has-addons">
                         <div class="control is-expanded">
-                            <input id="city-search" class="input" type="text" placeholder="Find a city">
+                            <input id="city-search-text" class="input" type="text" placeholder="Find a city">
                         </div>
                         <div class="control">
                             <button onclick="searchCity()" class="button is-info" id="city-search">
