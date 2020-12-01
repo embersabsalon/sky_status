@@ -7,6 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <script type="text/javascript">
+        function searchCity(){
+            let cityName = document.getElementById('city_search').value;
+            window.location.href = '?city=' + cityName;
+        }
+    </script>
 </head>
 
 <body>
@@ -25,27 +31,25 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-offset-4 is-4">
-                    <form method="POST">
-                        <div class="field has-addons">
-                            <div class="control is-expanded">
-                                <input class="input" type="text" placeholder="Find a city">
-                            </div>
-                            <div class="control">
-                                <a class="button is-info">
-                                    Search
-                                </a>
-                            </div>
+                    <div class="field has-addons">
+                        <div class="control is-expanded">
+                            <input id="city_search" class="input" type="text" placeholder="Find a city">
                         </div>
-                    </form>
+                        <div class="control">
+                            <button onclick="searchCity()" class="button is-info">
+                                Search
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- <section class="section">
+    {% if weather_data %}
+    <section class="section">
         <div class="container">
             <div class="columns">
                 <div class="column is-offset-4 is-4">
-                    {% if weather_data %}
                     <div class="box">
                         <article class="media">
                             <div class="media-left">
@@ -65,11 +69,11 @@
                             </div>
                         </article>
                     </div>
-                    {% endif %}
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
+    {% endif %}
     <!-- <footer class="footer">
     </footer> -->
 </body>
