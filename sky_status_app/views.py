@@ -1,5 +1,6 @@
 import requests
 import json
+import os
 
 from django.shortcuts import render
 from django.conf import settings
@@ -16,6 +17,11 @@ def index(request):
         'wind': loaded_data['wind']['speed'],
         'temp': loaded_data['main']['temp']
     }
-    print (weather_data)
     context = {'weather_data': weather_data}
+
+    fixture_file = os.path.abspath(os.path.join(
+        os.path.dirname(__file__), './fixtures/city_list.json'))
+    with open(fixture_file) as f:
+        cities_list = json.loads(f.read())
+    print (cities_list)
     return render(request, 'sky_status_app/index.html', context)
