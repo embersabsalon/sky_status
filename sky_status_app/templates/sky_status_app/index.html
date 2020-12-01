@@ -46,7 +46,7 @@
             </div>
         </div>
     </section>
-    {% if weather_data %}
+    {% for city in cities_weather %}
     <section class="section">
         <div class="container">
             <div class="columns">
@@ -55,16 +55,16 @@
                         <article class="media">
                             <div class="media-left">
                                 <figure class="image is-50x50">
-                                    <img src="http://openweathermap.org/img/w/{{ weather_data.icon }}.png" alt="Image">
+                                    <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
                                 </figure>
                             </div>
                             <div class="media-content">
                                 <div class="content">
                                     <p>
-                                        <span class="title">{{ weather_data.name }}</span>
+                                        <span class="title">{{ city.name }}, {{ city.country }}</span>
                                         <br>
-                                        <span class="subtitle">{{ weather_data.temp }}° F</span>
-                                        <br> {{ weather_data.weather }}
+                                        <span class="subtitle">{{ city.temp }}° F</span>
+                                        <br> {{ city.weather }}
                                     </p>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
             </div>
         </div>
     </section>
-    {% endif %}
+    {% endfor %}
     <!-- <footer class="footer">
     </footer> -->
 </body>
