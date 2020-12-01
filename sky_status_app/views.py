@@ -12,8 +12,9 @@ def index(request):
     context = {}
     city = None
     city_name = request.GET.get('city', '')
+    cities = []
     if city_name:
-        cities = City.objects.filter(name__contains=city_name)
+        cities = City.objects.filter(name__contains=city_name)[:5]
     if cities:
         cities_weather = []
         for city in cities:
@@ -24,6 +25,7 @@ def index(request):
                 'name': loaded_data['name'],
                 'weather': loaded_data['weather'][0]['main'],
                 'icon': loaded_data['weather'][0]['icon'],
+                'country': loaded_data['sys']['country'],
                 'wind': loaded_data['wind']['speed'],
                 'temp': loaded_data['main']['temp']
             }
