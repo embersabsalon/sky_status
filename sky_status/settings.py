@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -125,3 +126,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 # API Keys
 OPEN_WEATHER_API_KEY = '36b13a89b95711e8f9ad2050f42413fa'
+
+# Heroku
+
+django_heroku.settings(locals())
